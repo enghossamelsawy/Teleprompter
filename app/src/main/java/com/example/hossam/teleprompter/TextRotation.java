@@ -76,7 +76,7 @@ public class TextRotation extends AppCompatActivity {
             textsize = prefs.getInt("textsize", 10); //0 is the default value.
             speed = prefs.getInt("speed",10);
 
-            startActivity(new Intent(this,MainActivity2.class));
+         //   startActivity(new Intent(this,MainActivity2.class));
 
 
 
