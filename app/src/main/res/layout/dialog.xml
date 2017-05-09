@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+<android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#30000000"
+    app:layout_constraintTop_toTopOf="parent"
+    android:layout_marginTop="8dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    android:layout_marginBottom="8dp"
+    app:layout_constraintVertical_bias="1.0"
+    app:layout_constraintStart_toStartOf="parent"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    app:layout_constraintEnd_toEndOf="parent">
+
+    <com.xw.repo.BubbleSeekBar
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:bsb_auto_adjust_section_mark="true"
+        app:bsb_min="10"
+        app:bsb_max="30"
+        app:bsb_second_track_color="#00f"
+        app:bsb_section_count="4"
+        app:bsb_section_text_position="below_section_mark"
+        app:bsb_show_section_mark="true"
+        app:bsb_show_section_text="true"
+        app:bsb_show_thumb_text="true"
+        app:bsb_thumb_text_size="18sp"
+        app:bsb_touch_to_seek="true"
+        android:layout_marginTop="57dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/fontsize"
+        android:layout_marginStart="24dp"
+        android:id="@+id/sb_text_size" />
+
+
+
+
+    <Switch
+        android:id="@+id/get_news"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="External"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@+id/sb_speed"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="8dp"
+        app:layout_constraintHorizontal_bias="0.502"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <com.xw.repo.BubbleSeekBar
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:bsb_auto_adjust_section_mark="true"
+        app:bsb_second_track_color="#00f"
+        app:bsb_min="10"
+        app:bsb_max="80"
+        app:bsb_section_count="7"
+        app:bsb_section_text_position="below_section_mark"
+        app:bsb_show_section_mark="true"
+        app:bsb_show_section_text="true"
+        app:bsb_show_thumb_text="true"
+        app:bsb_thumb_text_size="18sp"
+        app:bsb_touch_to_seek="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintStart_toStartOf="@+id/sb_text_size"
+        android:id="@+id/sb_speed"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@+id/sb_text_size"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+    <TextView
+        android:id="@+id/fontsize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textsize"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="36dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="57dp" />
+
+    <TextView
+        android:id="@+id/speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/speed"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/fontsize"
+        app:layout_constraintEnd_toStartOf="@+id/sb_speed"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintHorizontal_bias="0.0" />
+</android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+</FrameLayout>
