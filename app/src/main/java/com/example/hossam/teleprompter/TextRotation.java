@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -27,6 +28,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.hossam.teleprompter.helper.Helper;
 import com.example.hossam.teleprompter.helper.RecyclerViewNewsAdabter;
+import com.google.gson.Gson;
 import com.xw.repo.BubbleSeekBar;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -395,6 +397,18 @@ public class TextRotation extends AppCompatActivity {
 
                     }
 
+
+                Gson gson = new Gson();
+
+                com.example.hossam.teleprompter.helper.Response response1 =   gson.fromJson(response,com.example.hossam.teleprompter.helper.Response.class);
+
+
+                Log.i("****",""+response1.data.news.get(0));
+
+
+
+
+//
 
                     setRecyclerView(speed,textsize,news);
 

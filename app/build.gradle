@@ -31,4 +31,5 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:25.3.1'
     compile 'com.xw.repo:bubbleseekbar:3.4-lite'
     compile 'com.android.support:design:25.3.1'
+    compile 'com.google.code.gson:gson:2.8.0'
 }
