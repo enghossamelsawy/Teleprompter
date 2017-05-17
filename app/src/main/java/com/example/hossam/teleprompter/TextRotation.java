@@ -28,6 +28,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.hossam.teleprompter.helper.Helper;
 import com.example.hossam.teleprompter.helper.RecyclerViewNewsAdabter;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.Gson;
 import com.xw.repo.BubbleSeekBar;
 import org.json.JSONArray;
@@ -65,6 +66,7 @@ public class TextRotation extends AppCompatActivity {
         newfeeds =(ImageView) findViewById(R.id.etnews_sprator);
         editTextdata =(LinearLayout) findViewById(R.id.linearLayout2);
         recyclerView = (RecyclerView)findViewById(R.id.textviewer);
+        Log.e("Token is ", FirebaseInstanceId.getInstance().getToken());
 
         view   = new View(this);
 
