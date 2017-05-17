@@ -393,7 +393,7 @@ public class TextRotation extends AppCompatActivity {
                     for(int counter= 0; counter<jsonArray.length();counter++)
                     {
                         JSONObject currentobject = jsonArray.getJSONObject(counter);
-                        news.add(currentobject.getString("shortDescription"));
+                     //   news.add(currentobject.getString("shortDescription"));
 
                     }
 
@@ -402,13 +402,15 @@ public class TextRotation extends AppCompatActivity {
 
                 com.example.hossam.teleprompter.helper.Response response1 =   gson.fromJson(response,com.example.hossam.teleprompter.helper.Response.class);
 
+                    for (int i = 0 ; i< response1.data.news.size();i++) {
+                        Log.i("****", "" + response1.data.news.get(i).shortDescription);
+                        news.add(response1.data.news.get(i).shortDescription);
 
-                Log.i("****",""+response1.data.news.get(0));
+                    }
 
 
 
 
-//
 
                     setRecyclerView(speed,textsize,news);
 
