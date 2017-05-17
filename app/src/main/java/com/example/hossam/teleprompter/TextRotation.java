@@ -402,9 +402,9 @@ public class TextRotation extends AppCompatActivity {
 
                 com.example.hossam.teleprompter.helper.Response response1 =   gson.fromJson(response,com.example.hossam.teleprompter.helper.Response.class);
 
-                    for (int i = 0 ; i< response1.data.news.size();i++) {
-                        Log.i("****", "" + response1.data.news.get(i).shortDescription);
-                        news.add(response1.data.news.get(i).shortDescription);
+                    for (int i = 0 ; i< response1.data15.news.size();i++) {
+                        Log.i("****", "" + response1.data15.news.get(i).shortDescription);
+                        news.add(response1.data15.news.get(i).shortDescription);
 
                     }
 

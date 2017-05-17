@@ -1,5 +1,7 @@
 package com.example.hossam.teleprompter.helper;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,8 +12,8 @@ import java.util.List;
 
 public class Response {
 
-
-    public data1 data ;
+@SerializedName("data")
+    public data1 data15 ;
 
 
 
