@@ -3,6 +3,10 @@
     package="com.example.hossam.teleprompter">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
 
     <application
         android:allowBackup="true"
@@ -12,6 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:testOnly="false">
+
+
 
         <activity android:name=".TextRotation">
             <intent-filter>
@@ -26,14 +32,31 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
 
+        <!--
+                   Defining Services
+               -->
+        <service
+            android:name=".helper.MyFCMService"
 
 
-       <service
-        android:name=".helper.NotificationGenie">
-        <intent-filter>
-            <action android:name="com.google.firebase.MESSAGING_EVENT"/>
-        </intent-filter>
-    </service>
+              android:label="string resource"
+
+
+            >
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".helper.MyFirebaseInstanceIDService"
+
+            >
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+
 
 
 

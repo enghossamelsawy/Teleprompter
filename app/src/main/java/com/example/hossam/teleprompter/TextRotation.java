@@ -28,6 +28,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.hossam.teleprompter.helper.Helper;
 import com.example.hossam.teleprompter.helper.RecyclerViewNewsAdabter;
+import com.example.hossam.teleprompter.retrofithelper.retrofitAPI;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.Gson;
 import com.xw.repo.BubbleSeekBar;
@@ -40,6 +41,11 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class TextRotation extends AppCompatActivity {
 
@@ -66,7 +72,8 @@ public class TextRotation extends AppCompatActivity {
         newfeeds =(ImageView) findViewById(R.id.etnews_sprator);
         editTextdata =(LinearLayout) findViewById(R.id.linearLayout2);
         recyclerView = (RecyclerView)findViewById(R.id.textviewer);
-        Log.e("Token is ", FirebaseInstanceId.getInstance().getToken());
+        Log.i("****","helloguys");
+        Log.i("****", FirebaseInstanceId.getInstance().getToken()+"");
 
         view   = new View(this);
 
@@ -380,7 +387,25 @@ public class TextRotation extends AppCompatActivity {
         news = new ArrayList<>();
 
 
-        String url= "http://yo.yo100.me/api/news/list?selectedTab=topNews&providerId=10";
+        final String url= "http://yo.yo100.me/api/news/list?selectedTab=topNews&providerId=10";
+
+
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(url+"/").addConverterFactory(GsonConverterFactory.create()).build();
+        retrofitAPI retrofitAPI1= retrofit.create(retrofitAPI.class);
+        Call<com.example.hossam.teleprompter.helper.Response>connection= retrofitAPI1.getPosts();
+        connection.enqueue(new Callback<com.example.hossam.teleprompter.helper.Response>() {
+            @Override
+            public void onResponse(Call<com.example.hossam.teleprompter.helper.Response> call, retrofit2.Response<com.example.hossam.teleprompter.helper.Response> response) {
+                String description = response.body().data15.news.get(0).shortDescription;
+
+                Log.i("****",description);
+            }
+
+            @Override
+            public void onFailure(Call<com.example.hossam.teleprompter.helper.Response> call, Throwable throwable) {
+
+            }
+        });
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET,url, new Response.Listener<String>() {
             @Override
@@ -405,7 +430,7 @@ public class TextRotation extends AppCompatActivity {
                 com.example.hossam.teleprompter.helper.Response response1 =   gson.fromJson(response,com.example.hossam.teleprompter.helper.Response.class);
 
                     for (int i = 0 ; i< response1.data15.news.size();i++) {
-                        Log.i("****", "" + response1.data15.news.get(i).shortDescription);
+                        //Log.i("****", "" + response1.data15.news.get(i).shortDescription);
                         news.add(response1.data15.news.get(i).shortDescription);
 
                     }
