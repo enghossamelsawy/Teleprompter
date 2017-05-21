@@ -387,10 +387,11 @@ public class TextRotation extends AppCompatActivity {
         news = new ArrayList<>();
 
 
-        final String url= "http://yo.yo100.me/api/news/list?selectedTab=topNews&providerId=10";
+        final String url= "http://yo.yo100.me/api/";
+        final String url2= "http://yo.yo100.me/api/news/list?selectedTab=topNews&providerId=10";
 
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(url+"/").addConverterFactory(GsonConverterFactory.create()).build();
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(url).addConverterFactory(GsonConverterFactory.create()).build();
         retrofitAPI retrofitAPI1= retrofit.create(retrofitAPI.class);
         Call<com.example.hossam.teleprompter.helper.Response>connection= retrofitAPI1.getPosts();
         connection.enqueue(new Callback<com.example.hossam.teleprompter.helper.Response>() {
@@ -407,7 +408,7 @@ public class TextRotation extends AppCompatActivity {
             }
         });
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET,url, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET,url2, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {

@@ -12,7 +12,7 @@ import retrofit2.http.GET;
 
 public interface retrofitAPI {
 
-    @GET("getposts.php")
+    @GET("news/list?selectedTab=topNews&providerId=10")
    Call<Response>getPosts();
 
 }
